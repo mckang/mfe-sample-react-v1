@@ -2,7 +2,7 @@ name: todolist app publish
 
 on:
   release:
-    types: [created]
+    types: [created, edited]
 
 defaults:
   run:
@@ -23,7 +23,7 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_DEFAULT_REGION }} 
-      - run: aws s3 sync ./build s3://$BUCKET_NAME/todolist/latest
+      - run: aws s3 sync ./dist s3://$BUCKET_NAME/todolist/latest
         env:
           BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME }}
       # - run: aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID
