@@ -3,9 +3,9 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 const commonConfig = require('./webpack.common');
 const packageJson = require('../package.json');
 
-// const domain = process.env.PRODUCTION_DOMAIN;
-const todoformAppUrl = "http://127.0.0.1:7002";
-const todolistppUrl = "http://127.0.0.1:7003";
+const domain = process.env.PRODUCTION_DOMAIN;
+const todoformAppUrl = `${domain}/todoform/latest`;
+const todolistppUrl = `${domain}/todolist/latest`;
 
 const prodConfig = {
   mode: 'production',
